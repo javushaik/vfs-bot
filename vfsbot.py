@@ -1,9 +1,13 @@
+from lib2to3.pgen2 import driver
 from selenium import webdriver
 import urllib
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+from selenium.webdriver.chrome.service import Service
+s=Service('c:/Users/Javed/OneDrive/Documents/GitHub/vfs-bot/vfsbot.py')
+driver=webdriver.Chrome(service=s)
 from twilio.rest import Client
 from PIL import Image
 from selenium.webdriver.common.action_chains import ActionChains
@@ -120,7 +124,7 @@ def check_session_expired(browser, log):
 
 def monitor_appointments():
 	## Potentially change this path for wherever you have installed the chromedriver.
-	browser = webdriver.Chrome(executable_path='/Users/sofia/dev/chromedriver')
+	browser = webdriver.Chrome(executable_path='c:/Users/Javed/OneDrive/Documents/GitHub/vfs-bot/vfsbot.py')
 	solver = TwoCaptcha(two_capcha_key)
 	log = open('vfslog.txt', 'w+')
 	appointments = False
